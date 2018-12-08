@@ -1,0 +1,36 @@
+{
+  "name": "downtown65-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/server.js --exec babel-node",
+    "build": "babel src -d dist"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "graphql-yoga": "^1.16.7",
+    "prisma-client-lib": "^1.22.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.0",
+    "@babel/core": "^7.2.0",
+    "@babel/node": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "@babel/preset-flow": "^7.0.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.10.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-plugin-flowtype": "^3.2.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jest": "^22.1.2",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-unicorn": "^6.0.1",
+    "nodemon": "^1.18.7"
+  }
+}
