@@ -1,27 +1,15 @@
 // @flow
 import { GraphQLServer } from 'graphql-yoga';
+import resolvers from './resolvers';
+import config from './config';
 import { prisma } from '../prisma-client';
 
-const typeDefs = `
-  type Query {
-    hello(name: String): String!
-  }
-`;
-
-const resolvers = {
-  Query: {
-    hello: (_, { name }) => `Hello ${name || 'World'}`,
-  },
-};
-
 const server = new GraphQLServer({
-  typeDefs,
+  typeDefs: './src/schema.graphql',
   resolvers,
-  context: () => ({
-    context: req => ({
-      ...req,
-      db: prisma,
-    }),
+  context: req => ({
+    ...req,
+    prisma,
   }),
 });
 server.start(() => console.log('Server is running on localhost:4000'));
