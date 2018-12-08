@@ -1,6 +1,6 @@
+// @flow
 import { GraphQLServer } from 'graphql-yoga';
-// ... or using `require()`
-// const { GraphQLServer } = require('graphql-yoga')
+import { prisma } from '../prisma-client';
 
 const typeDefs = `
   type Query {
@@ -14,5 +14,14 @@ const resolvers = {
   },
 };
 
-const server = new GraphQLServer({ typeDefs, resolvers });
+const server = new GraphQLServer({
+  typeDefs,
+  resolvers,
+  context: () => ({
+    context: req => ({
+      ...req,
+      db: prisma,
+    }),
+  }),
+});
 server.start(() => console.log('Server is running on localhost:4000'));

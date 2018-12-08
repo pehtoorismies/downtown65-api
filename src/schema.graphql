@@ -1,0 +1,14 @@
+type Event {
+  id: ID!
+  title: String
+}
+type User {
+  id: ID!
+  nick: String
+}
+
+type Query {
+  hello(name: String): String
+  events: [Event]
+  users: [User]
+}

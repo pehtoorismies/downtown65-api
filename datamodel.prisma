@@ -1,4 +1,30 @@
+enum EventType {
+  Bicycling
+  MTB
+  Running
+  Swimming
+  Orienteering
+  Triathlon
+  Other
+  Happening
+  Ultras
+}
+
 type User {
   id: ID! @id
+  email: String @unique
   name: String!
+  nick: String!
+  # why these are needed?
+  events: [Event!]! @relation(name: "UsersInEvents")
+  creator: [Event!]! @relation(name: "Creator")
+}
+
+type Event {
+  id: ID! @id
+  eventType: EventType
+  title: String!
+  participants: [User!]! @relation(name: "UsersInEvents" link: INLINE)
+  creator: User! @relation(name: "Creator" link: INLINE)
+  date: DateTime!
 }

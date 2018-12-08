@@ -3,4 +3,10 @@ datamodel: datamodel.prisma
 
 generate:
   - generator: flow-client
-    output: ./generated/prisma-client/
+    output: ./prisma-client/
+  - generator: graphql-schema
+    output: ./prisma-schema
+
+hooks:
+  post-deploy:
+    - prisma generate
