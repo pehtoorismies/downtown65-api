@@ -1,11 +1,14 @@
 // @flow
 import { GraphQLServer } from 'graphql-yoga';
+import { importSchema } from 'graphql-import';
 import resolvers from './resolvers';
-import config from './config';
-import { prisma } from '../prisma-client';
+import './config';
+import { prisma } from './prisma-client';
+
+const typeDefs = importSchema(`${__dirname}/schema.graphql`);
 
 const server = new GraphQLServer({
-  typeDefs: './src/schema.graphql',
+  typeDefs,
   resolvers,
   context: req => ({
     ...req,

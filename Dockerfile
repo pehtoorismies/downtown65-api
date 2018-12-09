@@ -1,4 +1,4 @@
-FROM node:8.12.0-alpine
+FROM node:10.14.1-alpine
 
 ENV WORKDIR=/home/node/app
 
@@ -6,12 +6,12 @@ WORKDIR ${WORKDIR}
 
 COPY . ${WORKDIR}
 
-ENV PRISMA_ENDPOINT=http://localhost:4466
+ENV PRISMA_ENDPOINT=http://prisma:4466
 ENV PRISMA_SECRET=prisma-secret
 
-RUN yarn --ignore-optional --pure-lockfile
-RUN yarn build 
+RUN npm install
+RUN npm run build
 
 EXPOSE 4000
-ENTRYPOINT ["yarn"]
-CMD ["serve"]
+ENTRYPOINT ["npm", "run"]
+CMD ["start-prod"]

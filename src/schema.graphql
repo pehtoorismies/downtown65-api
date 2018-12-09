@@ -1,11 +1,4 @@
-type Event {
-  id: ID!
-  title: String
-}
-type User {
-  id: ID!
-  nick: String
-}
+# import User from 'prisma.graphql'
 
 type Query {
   users: [User]
