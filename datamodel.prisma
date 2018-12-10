@@ -12,9 +12,10 @@ enum EventType {
 
 type User {
   id: ID! @id
-  email: String @unique
+  providerID: String! @unique 
+  email: String! @unique
   name: String!
-  nick: String!
+  nick: String! @unique
   # why these are needed?
   events: [Event!]! @relation(name: "UsersInEvents")
   creator: [Event!]! @relation(name: "Creator")

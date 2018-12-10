@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  dt65-server:
+    build: .
+    volumes:
+       - .:/home/node/app
+       - /home/node/app/node_modules
+    command: start
+    environment:
+      PRISMA_ENDPOINT: http://prisma:4466
+      PRISMA_SECRET: prisma-secret
+    ports:
+      - "4000:4000"

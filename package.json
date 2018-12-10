@@ -6,15 +6,21 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon src/server.js --exec babel-node",
-    "build": "babel src -d dist --copy-files",
-    "start-prod": "node dist/server.js",
-    "flow": "flow"
+    "start-prod": "npm-run-all prisma serve-prod",
+    "build": "npm-run-all clean build-src",
+    "build-src": "babel src -d dist --copy-files",
+    "serve-prod": "node dist/server.js",
+    "flow": "flow",
+    "clean": "rimraf dist",
+    "prisma": "prisma deploy"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
+    "auth0": "^2.14.0",
     "dotenv": "^6.2.0",
+    "graphql": "^14.0.2",
     "graphql-import": "^0.7.1",
     "graphql-yoga": "^1.16.7",
     "prisma-client-lib": "^1.22.2"
@@ -39,6 +45,10 @@
     "eslint-plugin-react": "^7.11.1",
     "eslint-plugin-unicorn": "^6.0.1",
     "flow-bin": "^0.87.0",
-    "nodemon": "^1.18.7"
+    "forever": "^0.15.3",
+    "nodemon": "^1.18.7",
+    "npm-run-all": "^4.1.5",
+    "prisma": "^1.22.2",
+    "rimraf": "^2.6.2"
   }
 }

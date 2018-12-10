@@ -22,21 +22,5 @@ services:
       - "27017:27017"
     volumes:
       - mongo:/var/lib/mongo
-  server:
-    build: .
-    container_name: dt65-server
-    ports:
-      - "4000:4000"
-    links:
-      - prisma:prisma
-    depends_on:
-      - prisma
-      - mongo
-    environment:
-      PRISMA_ENDPOINT: http://prisma:4466
-      PRISMA_SECRET: prisma-secret
-    # command: docker-develop
-    # volumes:
-      # - .:/home/node/app
 volumes:
   mongo:

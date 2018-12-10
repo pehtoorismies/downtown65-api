@@ -350,7 +350,8 @@ type Subscription {
 
 type User {
   id: ID!
-  email: String
+  providerID: String!
+  email: String!
   name: String!
   nick: String!
   events(where: EventWhereInput, orderBy: EventOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Event!]
@@ -364,7 +365,8 @@ type UserConnection {
 }
 
 input UserCreateInput {
-  email: String
+  providerID: String!
+  email: String!
   name: String!
   nick: String!
   events: EventCreateManyWithoutParticipantsInput
@@ -382,14 +384,16 @@ input UserCreateOneWithoutCreatorInput {
 }
 
 input UserCreateWithoutCreatorInput {
-  email: String
+  providerID: String!
+  email: String!
   name: String!
   nick: String!
   events: EventCreateManyWithoutParticipantsInput
 }
 
 input UserCreateWithoutEventsInput {
-  email: String
+  providerID: String!
+  email: String!
   name: String!
   nick: String!
   creator: EventCreateManyWithoutCreatorInput
@@ -403,6 +407,8 @@ type UserEdge {
 enum UserOrderByInput {
   id_ASC
   id_DESC
+  providerID_ASC
+  providerID_DESC
   email_ASC
   email_DESC
   name_ASC
@@ -417,7 +423,8 @@ enum UserOrderByInput {
 
 type UserPreviousValues {
   id: ID!
-  email: String
+  providerID: String!
+  email: String!
   name: String!
   nick: String!
 }
@@ -437,6 +444,20 @@ input UserScalarWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
+  providerID: String
+  providerID_not: String
+  providerID_in: [String!]
+  providerID_not_in: [String!]
+  providerID_lt: String
+  providerID_lte: String
+  providerID_gt: String
+  providerID_gte: String
+  providerID_contains: String
+  providerID_not_contains: String
+  providerID_starts_with: String
+  providerID_not_starts_with: String
+  providerID_ends_with: String
+  providerID_not_ends_with: String
   email: String
   email_not: String
   email_in: [String!]
@@ -503,6 +524,7 @@ input UserSubscriptionWhereInput {
 }
 
 input UserUpdateInput {
+  providerID: String
   email: String
   name: String
   nick: String
@@ -511,12 +533,14 @@ input UserUpdateInput {
 }
 
 input UserUpdateManyDataInput {
+  providerID: String
   email: String
   name: String
   nick: String
 }
 
 input UserUpdateManyMutationInput {
+  providerID: String
   email: String
   name: String
   nick: String
@@ -546,6 +570,7 @@ input UserUpdateOneRequiredWithoutCreatorInput {
 }
 
 input UserUpdateWithoutCreatorDataInput {
+  providerID: String
   email: String
   name: String
   nick: String
@@ -553,6 +578,7 @@ input UserUpdateWithoutCreatorDataInput {
 }
 
 input UserUpdateWithoutEventsDataInput {
+  providerID: String
   email: String
   name: String
   nick: String
@@ -590,6 +616,20 @@ input UserWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
+  providerID: String
+  providerID_not: String
+  providerID_in: [String!]
+  providerID_not_in: [String!]
+  providerID_lt: String
+  providerID_lte: String
+  providerID_gt: String
+  providerID_gte: String
+  providerID_contains: String
+  providerID_not_contains: String
+  providerID_starts_with: String
+  providerID_not_starts_with: String
+  providerID_ends_with: String
+  providerID_not_ends_with: String
   email: String
   email_not: String
   email_in: [String!]
@@ -645,5 +685,7 @@ input UserWhereInput {
 
 input UserWhereUniqueInput {
   id: ID
+  providerID: String
   email: String
+  nick: String
 }

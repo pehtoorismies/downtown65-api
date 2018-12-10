@@ -3,3 +3,11 @@
 type Query {
   users: [User]
 }
+type Mutation {
+  registerUser(
+    email: String
+    password: String
+    nick: String
+    name: String
+  ): User
+}
