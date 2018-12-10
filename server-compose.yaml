@@ -7,8 +7,5 @@ services:
        - .:/home/node/app
        - /home/node/app/node_modules
     command: start
-    environment:
-      PRISMA_ENDPOINT: http://prisma:4466
-      PRISMA_SECRET: prisma-secret
     ports:
       - "4000:4000"

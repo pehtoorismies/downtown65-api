@@ -1100,7 +1100,12 @@ export const models = [
  */
 
 export const Prisma: ClientConstructor<PrismaInterface> = makePrismaClientClass(
-  { typeDefs, models, endpoint: `${process.env["PRISMA_ENDPOINT"]}` }
+  {
+    typeDefs,
+    models,
+    endpoint: `${process.env["PRISMA_ENDPOINT"]}`,
+    secret: `${process.env["PRISMA_SECRET"]}`
+  }
 );
 
 export const prisma = new Prisma();
