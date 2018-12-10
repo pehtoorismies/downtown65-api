@@ -1,9 +1,9 @@
 mutation {
   createUser(
     data: {
-      email:"pehtoorismies+16@gmail.com"
-      name: "Antti Tuomaala"
-      nick:"pehtoorismies+16"
+      email:"email@example.com"
+      name: "Ron Hobbart"
+      nick:"hobby"
     }
   ) {
     id
