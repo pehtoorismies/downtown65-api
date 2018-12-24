@@ -4,3 +4,5 @@ node_modules
 .serverless
 .env*
 dist/
+src/prisma-client/
+src/prisma.graphql
