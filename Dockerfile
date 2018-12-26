@@ -17,4 +17,4 @@ RUN npm run build
 
 EXPOSE 4000
 ENTRYPOINT ["npm", "run"]
-CMD ["start-prod"]
+CMD ["serve"]

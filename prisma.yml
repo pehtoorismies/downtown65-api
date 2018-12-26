@@ -8,9 +8,9 @@ generate:
   - generator: graphql-schema
     output: ./src/
 
-hooks:
-  post-deploy:
-    - prisma generate
+# hooks:
+#   post-deploy:
+#     - prisma generate
 
 seed:
   import: database/seed.graphql

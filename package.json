@@ -6,13 +6,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon src/server.js --exec babel-node",
-    "start-prod": "npm-run-all prisma serve-prod",
-    "build": "npm-run-all clean build-src",
-    "build-src": "babel src -d dist --copy-files",
-    "serve-prod": "node dist/server.js",
+    "build": "npm-run-all clean prisma-generate babelify",
+    "babelify": "babel src -d dist --copy-files",
+    "serve": "node dist/server.js",
     "flow": "flow",
     "clean": "rimraf dist",
-    "prisma": "prisma deploy"
+    "prisma-deploy": "prisma deploy",
+    "prisma-generate": "prisma generate",
+    "prisma-all": "npm-run-all prisma-generate prisma-deploy prisma-seed"
   },
   "author": "",
   "license": "ISC",

@@ -6,3 +6,4 @@ node_modules
 dist/
 src/prisma-client/
 src/prisma.graphql
+exports/
