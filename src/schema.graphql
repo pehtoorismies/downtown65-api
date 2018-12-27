@@ -1,10 +1,49 @@
-# import User from 'prisma.graphql'
+
+scalar DateTime
+
+enum EventType {
+  Bicycling
+  MTB
+  Running
+  Swimming
+  Orienteering
+  Triathlon
+  Other
+  Happening
+  Ultras
+}
+
+type Event {
+  id: ID!
+  eventType: EventType
+  title: String!
+  participants: [User!]!
+  creator: User!
+  date: DateTime!
+}
+
+type User {
+  id: ID!
+  providerID: String!
+  email: String!
+  name: String!
+  nick: String!
+  events: [Event!]!
+  creator: [Event!]!
+}
 
 type Query {
   users: [User]
 }
+
 type Mutation {
   registerUser(
+    email: String
+    password: String
+    nick: String
+    name: String
+  ): User
+  migrateUser(
     email: String
     password: String
     nick: String
